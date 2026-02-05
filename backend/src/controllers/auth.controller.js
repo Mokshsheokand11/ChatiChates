@@ -2,7 +2,12 @@ import { generateToken } from "../lib/utils.js";
 import User from "../models/user.model.js"
 import brcypt from "bcrypt.js"
 export const signup =  async(req, res) => {
+  const{fullName , email, password} = req.body;
   try {
+
+    if (!fullName || !email || !password){
+      return res.status(400).json({ message: "Please provide all required fields 😕 "});
+    } 
     // hash password 
     if (password.length < 6){
       return res.status(400).json({ message: "Password must be at least 6 character 😕 "});
@@ -45,7 +50,15 @@ res.status(500).json({messgae:"Internal server error"});
 };
 
 export const login =  (req, res) => {
-  res.send("login route");
+  try {
+    const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).json({ message: "Please provide all required fields 😕 " })
+      };
+      const user = await User.findOne({ email });
+      if (!user) {
+        return res.status(400).json({ message: "Invalid email or password 😕 " });
+      }
 };
 
 export const logout =  (req, res) => {
