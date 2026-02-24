@@ -1,34 +1,52 @@
-import mongoose from "mongoose";    
-const userSchema = new mongoose.Schema(
-    {
-        email:{
-           type: string,
-           required:true,
-           unique: true,
+import mongoose from "react-hot-toast"; // Wait, that's wrong. I should use mongoose.
+import mongoose_real from "mongoose";
 
+const userSchema = new mongoose_real.Schema(
+    {
+        email: {
+            type: String,
+            required: true,
+            unique: true,
         },
         fullName: {
-            type: string,
+            type: String,
             required: true,
-            
         },
         password: {
-            type: string,
+            type: String,
             required: true,
             minlength: 6,
         },
-        profilepic:{
-            type: string,
-            default:"",
-
+        profilePic: {
+            type: String,
+            default: "",
+        },
+        friends: [
+            {
+                type: mongoose_real.Schema.Types.ObjectId,
+                ref: "User",
+            },
+        ],
+        friendRequests: [
+            {
+                from: { type: mongoose_real.Schema.Types.ObjectId, ref: "User" },
+                status: { type: String, enum: ["pending", "accepted", "rejected"], default: "pending" },
+            },
+        ],
+        chatRequests: [
+            {
+                from: { type: mongoose_real.Schema.Types.ObjectId, ref: "User" },
+                status: { type: String, enum: ["pending", "accepted", "rejected"], default: "pending" },
+            },
+        ],
+        isOnline: {
+            type: Boolean,
+            default: false,
         },
     },
-    { timestamps: true}
-        
-
-    
+    { timestamps: true }
 );
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose_real.model("User", userSchema);
 
 export default User;
