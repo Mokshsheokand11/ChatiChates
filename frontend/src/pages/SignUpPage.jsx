@@ -36,7 +36,11 @@ const SignUpPage = () => {
 
     return (
         <div className="min-h-screen pt-16 flex items-center justify-center p-4">
-            <div className="bg-base-100 rounded-2xl overflow-hidden shadow-2xl max-w-md w-full">
+            <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="bg-base-100 rounded-2xl overflow-hidden shadow-2xl max-w-md w-full"
+            >
                 {/* left side */}
                 <div className="flex flex-col justify-center items-center p-8 sm:p-16 lg:p-20">
                     <div className="w-full max-w-sm space-y-8">
@@ -143,8 +147,8 @@ const SignUpPage = () => {
                     </div>
                 </div>
 
-            </div>
         </div>
+        </div >
     );
 };
 export default SignUpPage;
