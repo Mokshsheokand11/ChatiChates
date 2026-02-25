@@ -20,11 +20,7 @@ const LoginPage = () => {
 
     return (
         <div className="min-h-screen pt-16 flex items-center justify-center p-4">
-            <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="grid lg:grid-cols-2 bg-base-100 rounded-2xl overflow-hidden shadow-2xl max-w-5xl w-full"
-            >
+            <div className="bg-base-100 rounded-2xl overflow-hidden shadow-2xl max-w-md w-full">
                 {/* Left Side - Form */}
                 <div className="flex flex-col justify-center items-center p-8 sm:p-16 lg:p-20">
                     <div className="w-full max-w-sm space-y-8">
@@ -113,12 +109,7 @@ const LoginPage = () => {
                     </div>
                 </div>
 
-                {/* Right Side - Image/Pattern */}
-                <AuthImagePattern
-                    title={"Welcome back!"}
-                    subtitle={"Sign in to continue your conversations and catch up with your friends."}
-                />
-            </motion.div>
+            </div>
         </div>
     );
 };
