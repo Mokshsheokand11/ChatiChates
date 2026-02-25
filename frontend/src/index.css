@@ -1,6 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "daisyui";
+
+@theme {
+  --color-oatmilk: #F2E8CF;
+  --color-dark-text: #2D2A2E;
+}
 
 :root {
   font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -8,8 +12,8 @@
   font-weight: 400;
 
   color-scheme: light;
-  color: #2D2A2E;
-  background-color: #F2E8CF;
+  color: var(--color-dark-text);
+  background-color: var(--color-oatmilk);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
