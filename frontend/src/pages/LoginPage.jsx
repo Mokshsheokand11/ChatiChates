@@ -112,9 +112,8 @@ const LoginPage = () => {
                         </div>
                     </div>
                 </div>
-
+            </motion.div>
         </div>
-        </div >
     );
 };
 export default LoginPage;

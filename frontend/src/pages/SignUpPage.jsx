@@ -146,9 +146,8 @@ const SignUpPage = () => {
                         </div>
                     </div>
                 </div>
-
+            </motion.div>
         </div>
-        </div >
     );
 };
 export default SignUpPage;
