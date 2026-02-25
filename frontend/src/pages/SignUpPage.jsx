@@ -39,7 +39,7 @@ const SignUpPage = () => {
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="bg-base-100 rounded-2xl overflow-hidden shadow-2xl max-w-md w-full"
+                className="glass-premium rounded-3xl overflow-hidden max-w-md w-full"
             >
                 {/* left side */}
                 <div className="flex flex-col justify-center items-center p-8 sm:p-16 lg:p-20">
@@ -69,7 +69,7 @@ const SignUpPage = () => {
                                     </div>
                                     <input
                                         type="text"
-                                        className={`input input-bordered w-full pl-10`}
+                                        className="input-premium w-full pl-10"
                                         placeholder="John Doe"
                                         value={formData.fullName}
                                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
@@ -87,7 +87,7 @@ const SignUpPage = () => {
                                     </div>
                                     <input
                                         type="email"
-                                        className={`input input-bordered w-full pl-10`}
+                                        className="input-premium w-full pl-10"
                                         placeholder="you@example.com"
                                         value={formData.email}
                                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -105,7 +105,7 @@ const SignUpPage = () => {
                                     </div>
                                     <input
                                         type={showPassword ? "text" : "password"}
-                                        className={`input input-bordered w-full pl-10`}
+                                        className="input-premium w-full pl-10"
                                         placeholder="••••••••"
                                         value={formData.password}
                                         onChange={(e) => setFormData({ ...formData, password: e.target.value })}
@@ -124,7 +124,7 @@ const SignUpPage = () => {
                                 </div>
                             </div>
 
-                            <button type="submit" className="btn btn-primary w-full" disabled={isSigningUp}>
+                            <button type="submit" className="btn-premium w-full" disabled={isSigningUp}>
                                 {isSigningUp ? (
                                     <>
                                         <Loader2 className="size-5 animate-spin" />

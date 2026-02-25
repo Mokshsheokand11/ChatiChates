@@ -9,9 +9,9 @@ const HomePage = () => {
     const { selectedUser, selectedGroup } = useChatStore();
 
     return (
-        <div className="min-h-screen bg-base-200">
+        <div className="min-h-screen">
             <div className="flex items-center justify-center pt-20 px-4 pb-10">
-                <div className="bg-base-100 rounded-lg shadow-cl w-full max-w-6xl h-[calc(100vh-10rem)]">
+                <div className="glass-premium rounded-3xl w-full max-w-6xl h-[calc(100vh-10rem)]">
                     <div className="flex h-full rounded-lg overflow-hidden">
                         <Sidebar />
 

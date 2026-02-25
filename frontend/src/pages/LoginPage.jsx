@@ -23,7 +23,7 @@ const LoginPage = () => {
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="bg-base-100 rounded-2xl overflow-hidden shadow-2xl max-w-md w-full"
+                className="glass-premium rounded-3xl overflow-hidden max-w-md w-full"
             >
                 {/* Left Side - Form */}
                 <div className="flex flex-col justify-center items-center p-8 sm:p-16 lg:p-20">
@@ -53,7 +53,7 @@ const LoginPage = () => {
                                     </div>
                                     <input
                                         type="email"
-                                        className={`input input-bordered w-full pl-10`}
+                                        className="input-premium w-full pl-10"
                                         placeholder="you@example.com"
                                         value={formData.email}
                                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -71,7 +71,7 @@ const LoginPage = () => {
                                     </div>
                                     <input
                                         type={showPassword ? "text" : "password"}
-                                        className={`input input-bordered w-full pl-10`}
+                                        className="input-premium w-full pl-10"
                                         placeholder="••••••••"
                                         value={formData.password}
                                         onChange={(e) => setFormData({ ...formData, password: e.target.value })}
@@ -90,7 +90,7 @@ const LoginPage = () => {
                                 </div>
                             </div>
 
-                            <button type="submit" className="btn btn-primary w-full" disabled={isLoggingIn}>
+                            <button type="submit" className="btn-premium w-full" disabled={isLoggingIn}>
                                 {isLoggingIn ? (
                                     <>
                                         <Loader2 className="h-5 w-5 animate-spin" />

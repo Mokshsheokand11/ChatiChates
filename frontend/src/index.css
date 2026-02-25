@@ -2,17 +2,22 @@
 @plugin "daisyui";
 
 @theme {
-  --color-oatmilk: #F2E8CF;
-  --color-dark-text: #2D2A2E;
+  --color-oatmilk: #F5F1E9;
+  --color-oatmilk-dark: #E8E0D0;
+  --color-charcoal: #2D2A2E;
+  --color-sepia: #704214;
+
+  --shadow-premium: 0 10px 15px -3px rgba(112, 66, 20, 0.05), 0 4px 6px -2px rgba(112, 66, 20, 0.02);
+  --shadow-premium-xl: 0 20px 25px -5px rgba(112, 66, 20, 0.08), 0 10px 10px -5px rgba(112, 66, 20, 0.03);
 }
 
 :root {
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
   font-weight: 400;
 
   color-scheme: light;
-  color: var(--color-dark-text);
+  color: var(--color-charcoal);
   background-color: var(--color-oatmilk);
 
   font-synthesis: none;
@@ -24,45 +29,53 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: #F2E8CF;
+  background-color: var(--color-oatmilk);
+  background-image:
+    radial-gradient(at 0% 0%, rgba(112, 66, 20, 0.03) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(112, 66, 20, 0.03) 0px, transparent 50%);
+  background-attachment: fixed;
 }
 
-.glass {
-  background: rgba(255, 255, 255, 0.05);
+.glass-premium {
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: var(--shadow-premium);
 }
 
-.glass-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1rem;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+.input-premium {
+  @apply input input-bordered bg-white/50 border-sepia/10 focus:border-sepia/30 focus:outline-none transition-all duration-300;
+}
+
+.btn-premium {
+  @apply btn btn-primary shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300;
 }
 
 .premium-text {
-  background: linear-gradient(to right, #818cf8, #c084fc);
+  @apply tracking-tight font-bold;
+  background: linear-gradient(135deg, #704214 0%, #2D2A2E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--color-oatmilk-dark);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--color-sepia);
+  opacity: 0.3;
   border-radius: 10px;
+  border: 2px solid var(--color-oatmilk-dark);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--color-sepia);
+  opacity: 0.5;
 }
