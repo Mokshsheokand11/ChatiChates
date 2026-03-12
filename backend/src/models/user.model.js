@@ -1,7 +1,6 @@
-import mongoose from "react-hot-toast"; // Wait, that's wrong. I should use mongoose.
-import mongoose_real from "mongoose";
+import mongoose from "mongoose";
 
-const userSchema = new mongoose_real.Schema(
+const userSchema = new mongoose.Schema(
     {
         email: {
             type: String,
@@ -23,19 +22,19 @@ const userSchema = new mongoose_real.Schema(
         },
         friends: [
             {
-                type: mongoose_real.Schema.Types.ObjectId,
+                type: mongoose.Schema.Types.ObjectId,
                 ref: "User",
             },
         ],
         friendRequests: [
             {
-                from: { type: mongoose_real.Schema.Types.ObjectId, ref: "User" },
+                from: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
                 status: { type: String, enum: ["pending", "accepted", "rejected"], default: "pending" },
             },
         ],
         chatRequests: [
             {
-                from: { type: mongoose_real.Schema.Types.ObjectId, ref: "User" },
+                from: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
                 status: { type: String, enum: ["pending", "accepted", "rejected"], default: "pending" },
             },
         ],
@@ -47,6 +46,6 @@ const userSchema = new mongoose_real.Schema(
     { timestamps: true }
 );
 
-const User = mongoose_real.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 
 export default User;
