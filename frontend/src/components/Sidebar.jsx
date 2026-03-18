@@ -46,12 +46,12 @@ const Sidebar = () => {
     if (isUsersLoading) return <SidebarSkeleton />;
 
     return (
-        <aside className="h-full w-20 lg:w-72 border-r border-base-300 flex flex-col transition-all duration-200">
-            <div className="border-b border-base-300 w-full p-5">
+        <aside className="h-full w-20 lg:w-72 border-r border-cream flex flex-col transition-all duration-200 glass-premium">
+            <div className="border-b border-cream w-full p-5">
                 <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2">
-                        <Users className="size-6" />
-                        <span className="font-medium hidden lg:block">Contacts</span>
+                        <Users className="size-6 text-leaf" />
+                        <span className="font-bold hidden lg:block premium-text">Contacts</span>
                     </div>
                 </div>
 
@@ -60,30 +60,30 @@ const Sidebar = () => {
                     <div className="relative">
                         <input
                             type="text"
-                            placeholder="Search users..."
-                            className="input input-bordered input-sm w-full pl-8"
+                            placeholder="Search..."
+                            className="input-premium input-sm w-full pl-8"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />
-                        <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 size-4 text-zinc-500" />
+                        <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 size-4 text-leaf/40" />
                     </div>
                 </form>
 
                 {/* Chat Requests Section */}
                 {authUser?.chatRequests?.some(r => r.status === 'pending') && (
-                    <div className="hidden lg:block mb-4 p-2 bg-primary/10 rounded-lg">
-                        <p className="text-xs font-bold mb-2">Pending Requests</p>
+                    <div className="hidden lg:block mb-4 p-2 bg-matcha/10 rounded-xl border border-matcha/20">
+                        <p className="text-xs font-bold mb-2 text-leaf">Pending</p>
                         {authUser.chatRequests.filter(r => r.status === 'pending').map(req => (
                             <div key={req._id} className="flex items-center justify-between gap-2 mb-2 last:mb-0">
-                                <span className="text-xs truncate">New Chat Request</span>
+                                <span className="text-[10px] truncate text-leaf/70">New Request</span>
                                 <div className="flex gap-1">
                                     <button
                                         onClick={() => handleChatRequest(req._id, 'accepted')}
-                                        className="btn btn-xs btn-success"
+                                        className="btn btn-xs bg-success text-white border-none min-h-0 h-5"
                                     >✓</button>
                                     <button
                                         onClick={() => handleChatRequest(req._id, 'rejected')}
-                                        className="btn btn-xs btn-error"
+                                        className="btn btn-xs bg-error text-white border-none min-h-0 h-5"
                                     >✕</button>
                                 </div>
                             </div>
@@ -93,9 +93,9 @@ const Sidebar = () => {
 
                 {/* Groups Section Header */}
                 <div className="hidden lg:flex items-center justify-between mb-2">
-                    <span className="text-xs font-bold uppercase text-zinc-500">Groups</span>
+                    <span className="text-xs font-bold uppercase text-leaf/50 tracking-wider">Groups</span>
                     <button
-                        className="btn btn-xs btn-ghost text-primary text-xs"
+                        className="btn btn-xs btn-ghost text-matcha hover:bg-matcha/10 text-xs"
                         onClick={() => document.getElementById('group_modal').showModal()}
                     >+ New</button>
                 </div>
@@ -111,22 +111,22 @@ const Sidebar = () => {
                                 onClick={() => setSelectedGroup(group)}
                                 className={`
                                 w-full p-2 flex items-center gap-3
-                                hover:bg-base-300 transition-colors rounded-lg
-                                ${selectedGroup?._id === group._id ? "bg-base-300 ring-1 ring-base-300" : ""}
+                                hover:bg-matcha/10 transition-all rounded-xl
+                                ${selectedGroup?._id === group._id ? "bg-matcha/20 shadow-sm" : ""}
                             `}
                             >
-                                <div className="size-8 rounded-lg bg-primary/10 flex items-center justify-center overflow-hidden">
+                                <div className="size-8 rounded-lg bg-matcha/10 flex items-center justify-center overflow-hidden border border-matcha/20">
                                     {group.image ? (
                                         <img src={group.image} alt={group.name} className="size-full object-cover" />
                                     ) : (
-                                        <Users className="size-4 text-primary" />
+                                        <Users className="size-4 text-matcha" />
                                     )}
                                 </div>
-                                <span className="text-sm font-medium truncate">{group.name}</span>
+                                <span className="text-sm font-medium truncate text-leaf">{group.name}</span>
                             </motion.button>
                         ))}
                     </AnimatePresence>
-                    {groups.length === 0 && <p className="text-xs text-zinc-500 px-2 italic">No groups joined</p>}
+                    {groups.length === 0 && <p className="text-xs text-leaf/40 px-2 italic">None joined</p>}
                 </div>
 
                 {/* Online filter toggle */}
@@ -136,17 +136,17 @@ const Sidebar = () => {
                             type="checkbox"
                             checked={showOnlineOnly}
                             onChange={(e) => setShowOnlineOnly(e.target.checked)}
-                            className="checkbox checkbox-sm"
+                            className="checkbox checkbox-sm border-matcha/30 checked:border-matcha"
                         />
-                        <span className="text-sm">Show online only</span>
+                        <span className="text-sm text-leaf/80">Online only</span>
                     </label>
-                    <span className="text-xs text-zinc-500">({onlineUsers.length > 0 ? onlineUsers.length - 1 : 0} online)</span>
+                    <span className="text-[10px] text-leaf/40">({onlineUsers.length > 0 ? onlineUsers.length - 1 : 0})</span>
                 </div>
             </div>
 
             <div className="overflow-y-auto w-full py-3">
-                <p className="px-5 py-2 text-xs font-bold lg:block hidden uppercase text-zinc-500">Direct Messages</p>
-                <div className="space-y-1">
+                <p className="px-5 py-2 text-xs font-bold lg:block hidden uppercase text-leaf/50 tracking-wider">Messages</p>
+                <div className="space-y-1 px-2">
                     <AnimatePresence>
                         {filteredUsers.map((user, index) => (
                             <motion.button
@@ -157,20 +157,20 @@ const Sidebar = () => {
                                 onClick={() => setSelectedUser(user)}
                                 className={`
                                     w-full p-3 flex items-center gap-3
-                                    hover:bg-base-300 transition-colors
-                                    ${selectedUser?._id === user._id ? "bg-base-300 ring-1 ring-base-300" : ""}
+                                    hover:bg-matcha/10 transition-all rounded-xl
+                                    ${selectedUser?._id === user._id ? "bg-matcha/20 shadow-sm" : ""}
                                 `}
                             >
                                 <div className="relative mx-auto lg:mx-0">
                                     <img
                                         src={user.profilePic || "/avatar.png"}
                                         alt={user.fullName}
-                                        className="size-12 object-cover rounded-full"
+                                        className="size-12 object-cover rounded-full border border-matcha/20"
                                     />
                                     {onlineUsers.includes(user._id) && (
                                         <span
-                                            className="absolute bottom-0 right-0 size-3 bg-green-500 
-                                            ring-2 ring-zinc-900 rounded-full"
+                                            className="absolute bottom-0 right-0 size-3 bg-success 
+                                            ring-2 ring-oatmilk rounded-full"
                                         />
                                     )}
                                 </div>
@@ -178,9 +178,9 @@ const Sidebar = () => {
                                 {/* User info - only visible on larger screens */}
                                 <div className="hidden lg:flex flex-1 items-center justify-between min-w-0">
                                     <div className="text-left">
-                                        <div className="font-medium truncate">{user.fullName}</div>
-                                        <div className="text-sm text-zinc-400">
-                                            {onlineUsers.includes(user._id) ? "Online" : "Offline"}
+                                        <div className="font-semibold truncate text-leaf">{user.fullName}</div>
+                                        <div className="text-xs text-leaf/50 font-medium">
+                                            {onlineUsers.includes(user._id) ? "Active now" : "Recently active"}
                                         </div>
                                     </div>
 
@@ -189,8 +189,8 @@ const Sidebar = () => {
                                             e.stopPropagation();
                                             sendChatRequest(user._id);
                                         }}
-                                        className="btn btn-xs btn-ghost text-primary hover:bg-primary/20"
-                                        title="Send Chat Request"
+                                        className="btn btn-xs btn-ghost text-matcha hover:bg-matcha/20 rounded-lg"
+                                        title="Quick Chat"
                                     >
                                         <MessageSquare className="size-4" />
                                     </button>
@@ -201,9 +201,10 @@ const Sidebar = () => {
                 </div>
 
                 {filteredUsers.length === 0 && (
-                    <div className="text-center text-zinc-500 py-4">No users found</div>
+                    <div className="text-center text-leaf/40 py-8 text-sm italic">No contacts found</div>
                 )}
             </div>
+
         </aside>
     );
 };

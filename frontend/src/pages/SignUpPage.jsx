@@ -48,15 +48,16 @@ const SignUpPage = () => {
                         <div className="text-center mb-8">
                             <div className="flex flex-col items-center gap-2 group">
                                 <div
-                                    className="size-12 rounded-xl bg-primary/10 flex items-center justify-center 
-                group-hover:bg-primary/20 transition-colors"
+                                    className="size-12 rounded-xl bg-matcha/10 flex items-center justify-center 
+                group-hover:bg-matcha/20 transition-all duration-300 border border-matcha/10"
                                 >
-                                    <MessageSquare className="size-6 text-primary" />
+                                    <MessageSquare className="size-6 text-matcha" />
                                 </div>
-                                <h1 className="text-2xl font-bold mt-2">Create Account</h1>
-                                <p className="text-base-content/60">Get started with your free account</p>
+                                <h1 className="text-3xl font-bold mt-2 premium-text">Create Account</h1>
+                                <p className="text-leaf/60 font-medium">Join the premium experience</p>
                             </div>
                         </div>
+
 
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="form-control">

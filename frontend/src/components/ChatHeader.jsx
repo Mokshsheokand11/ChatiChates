@@ -21,27 +21,27 @@ const ChatHeader = () => {
     const isOnline = selectedUser && onlineUsers.includes(selectedUser._id);
 
     return (
-        <div className="p-2.5 border-b border-base-300">
+        <div className="p-4 border-b border-cream">
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                     {/* Avatar */}
                     <div className="avatar">
-                        <div className="size-10 rounded-full relative">
+                        <div className="size-10 rounded-full relative border border-matcha/20">
                             <img src={displayImage || "/avatar.png"} alt={displayName} />
                         </div>
                     </div>
 
                     {/* User/Group info */}
                     <div>
-                        <h3 className="font-medium">{displayName}</h3>
-                        <p className="text-sm text-base-content/70">
+                        <h3 className="font-bold text-leaf">{displayName}</h3>
+                        <p className="text-xs font-medium text-leaf/50">
                             {selectedGroup ? (
                                 `${selectedGroup.members?.length || 0} members`
                             ) : (
                                 useChatStore.getState().typingUsers[selectedUser?._id] ? (
-                                    <span className="text-primary animate-pulse italic">Typing...</span>
+                                    <span className="text-matcha animate-pulse italic">Thinking...</span>
                                 ) : (
-                                    isOnline ? "Online" : "Offline"
+                                    isOnline ? "Active now" : "Recently active"
                                 )
                             )}
                         </p>
@@ -49,11 +49,15 @@ const ChatHeader = () => {
                 </div>
 
                 {/* Close button */}
-                <button onClick={handleClose}>
-                    <X />
+                <button 
+                    onClick={handleClose}
+                    className="btn btn-sm btn-ghost btn-circle text-leaf/40 hover:text-leaf hover:bg-matcha/10 transition-all"
+                >
+                    <X className="size-5" />
                 </button>
             </div>
         </div>
+
     );
 };
 export default ChatHeader;

@@ -97,7 +97,7 @@ const MessageInput = () => {
                 <div className="flex-1 flex gap-2">
                     <input
                         type="text"
-                        className="w-full input input-bordered rounded-lg input-sm sm:input-md"
+                        className="w-full input-premium input-sm sm:input-md rounded-xl"
                         placeholder="Type a message..."
                         value={text}
                         onChange={handleTextChange}
@@ -112,8 +112,8 @@ const MessageInput = () => {
 
                     <button
                         type="button"
-                        className={`hidden sm:flex btn btn-circle
-                     ${imagePreview ? "text-emerald-500" : "text-zinc-400"}`}
+                        className={`hidden sm:flex btn btn-circle btn-ghost transition-all
+                     ${imagePreview ? "text-matcha bg-matcha/10" : "text-leaf/40 hover:bg-matcha/10"}`}
                         onClick={() => fileInputRef.current?.click()}
                     >
                         <Image size={20} />
@@ -121,7 +121,7 @@ const MessageInput = () => {
 
                     <button
                         type="button"
-                        className="btn btn-circle text-zinc-400"
+                        className="btn btn-circle btn-ghost text-leaf/40 hover:bg-matcha/10 transition-all"
                         onClick={() => setShowEmojiPicker(!showEmojiPicker)}
                     >
                         😊
@@ -129,12 +129,13 @@ const MessageInput = () => {
                 </div>
                 <button
                     type="submit"
-                    className="btn btn-sm btn-circle"
+                    className="btn btn-sm btn-circle btn-premium"
                     disabled={!text.trim() && !imagePreview}
                 >
-                    <Send size={22} />
+                    <Send size={18} />
                 </button>
             </form>
+
 
             {showEmojiPicker && (
                 <div className="absolute bottom-20 right-10 z-50">

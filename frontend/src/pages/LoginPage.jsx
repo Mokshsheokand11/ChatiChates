@@ -31,14 +31,15 @@ const LoginPage = () => {
                         <div className="text-center mb-8">
                             <div className="flex flex-col items-center gap-2 group">
                                 <div
-                                    className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors"
+                                    className="w-12 h-12 rounded-xl bg-matcha/10 flex items-center justify-center group-hover:bg-matcha/20 transition-all duration-300 border border-matcha/10"
                                 >
-                                    <MessageSquare className="w-6 h-6 text-primary" />
+                                    <MessageSquare className="w-6 h-6 text-matcha" />
                                 </div>
-                                <h1 className="text-2xl font-bold mt-2">Welcome Back</h1>
-                                <p className="text-base-content/60">Sign in to your account</p>
+                                <h1 className="text-3xl font-bold mt-2 premium-text">Welcome Back</h1>
+                                <p className="text-leaf/60 font-medium">Elevate your conversation</p>
                             </div>
                         </div>
+
 
                         {/* Form */}
                         <form onSubmit={handleSubmit} className="space-y-6">

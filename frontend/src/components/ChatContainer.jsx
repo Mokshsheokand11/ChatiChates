@@ -84,16 +84,21 @@ const ChatContainer = () => {
                                     {formatMessageTime(message.createdAt)}
                                 </time>
                             </div>
-                            <div className="chat-bubble flex flex-col">
+                            <div className={`chat-bubble flex flex-col shadow-sm ${
+                                message.senderId === authUser._id 
+                                ? "bg-matcha text-white" 
+                                : "bg-cream text-leaf"
+                            }`}>
                                 {message.image && (
                                     <img
                                         src={message.image}
                                         alt="Attachment"
-                                        className="sm:max-w-[200px] rounded-md mb-2"
+                                        className="sm:max-w-[200px] rounded-md mb-2 border border-black/5"
                                     />
                                 )}
-                                {message.text && <p>{message.text}</p>}
+                                {message.text && <p className="font-medium">{message.text}</p>}
                             </div>
+
                             {message.senderId === authUser._id && message.isRead && (
                                 <div className="chat-footer opacity-50 text-xs flex items-center gap-1">
                                     Seen
