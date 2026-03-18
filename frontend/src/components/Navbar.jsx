@@ -21,26 +21,30 @@ const Navbar = () => {
                     <div className="flex items-center gap-2">
                         <Link
                             to={"/settings"}
-                            className={`btn btn-sm gap-2 transition-colors`}
+                            className="btn btn-sm btn-ghost gap-2 transition-all hover:bg-matcha/10"
                         >
-                            <Settings className="w-4 h-4" />
-                            <span className="hidden sm:inline">Settings</span>
+                            <Settings className="w-4 h-4 text-leaf" />
+                            <span className="hidden sm:inline text-leaf/80">Settings</span>
                         </Link>
 
                         {authUser && (
                             <>
-                                <Link to={"/profile"} className={`btn btn-sm gap-2`}>
-                                    <User className="size-5" />
-                                    <span className="hidden sm:inline">Profile</span>
+                                <Link to={"/profile"} className="btn btn-sm btn-ghost gap-2 transition-all hover:bg-matcha/10">
+                                    <User className="size-5 text-leaf" />
+                                    <span className="hidden sm:inline text-leaf/80">Profile</span>
                                 </Link>
 
-                                <button className="flex gap-2 items-center btn btn-sm" onClick={logout}>
+                                <button 
+                                    className="btn btn-sm btn-ghost gap-2 transition-all hover:bg-error/10 text-error" 
+                                    onClick={logout}
+                                >
                                     <LogOut className="size-5" />
                                     <span className="hidden sm:inline">Logout</span>
                                 </button>
                             </>
                         )}
                     </div>
+
                 </div>
             </div>
         </header>

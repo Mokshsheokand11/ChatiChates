@@ -9,17 +9,22 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#6366f1",
-        secondary: "#8b5cf6",
-        accent: "#d946ef",
-        neutral: "#1f2937",
-        "chat-bg": "#0f172a",
-        "chat-bubble-user": "#4f46e5",
-        "chat-bubble-other": "#1e293b",
+        oatmilk: "#F9F7F2",
+        matcha: "#A3B18A",
+        sage: "#588157",
+        leaf: "#344E41",
+        cream: "#DAD7CD",
+        primary: "#A3B18A",
+        secondary: "#588157",
+        accent: "#DAD7CD",
+        neutral: "#344E41",
+        "chat-bg": "#F9F7F2",
+        "chat-bubble-user": "#A3B18A",
+        "chat-bubble-other": "#E8E2D2",
       },
       backgroundImage: {
-        'premium-gradient': 'linear-gradient(to bottom right, #4c1d95, #1e3a8a)',
-        'glass-gradient': 'linear-gradient(to bottom right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))',
+        'premium-gradient': 'linear-gradient(to bottom right, #A3B18A, #588157)',
+        'glass-gradient': 'linear-gradient(to bottom right, rgba(249, 247, 242, 0.4), rgba(249, 247, 242, 0.2))',
       },
       backdropBlur: {
         xs: '2px',
@@ -31,17 +36,21 @@ export default {
     themes: [
       {
         chatichates: {
-          "primary": "#4c1d95",
-          "secondary": "#1e3a8a",
-          "accent": "#d946ef",
-          "neutral": "#1f2937",
-          "base-100": "#0f172a",
-          "info": "#0ea5e9",
-          "success": "#22c55e",
-          "warning": "#f59e0b",
-          "error": "#ef4444",
+          "primary": "#A3B18A",
+          "secondary": "#588157",
+          "accent": "#DAD7CD",
+          "neutral": "#344E41",
+          "base-100": "#F9F7F2",
+          "base-200": "#E8E2D2",
+          "base-300": "#DAD7CD",
+          "base-content": "#344E41",
+          "info": "#7CA1A4",
+          "success": "#588157",
+          "warning": "#C7A97E",
+          "error": "#A66E6E",
         },
       },
     ],
   },
 }
+
