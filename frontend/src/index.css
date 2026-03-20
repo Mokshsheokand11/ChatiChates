@@ -48,7 +48,7 @@ body {
 }
 
 .input-premium {
-  @apply input input-bordered bg-white/60 border-matcha/20 focus:border-matcha/50 focus:outline-none transition-all duration-300;
+  @apply input bg-white/60 border-matcha/20 focus:border-matcha/50 focus:outline-none transition-all duration-300;
 }
 
 .btn-premium {
