@@ -1,3 +1,4 @@
+##
 Realtime Chat App Tutorial - React.js & Socket.io (Initial Progress)
 This README outlines the setup and core concepts covered in the tutorial's initial phase for building a realtime chat application.
 
